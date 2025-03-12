@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bombóns Artesanais</title>
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background-color: #1a1a1a;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      margin: 0;
+      color: #fff;
+    }
+    header p {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.2rem;
+      margin: 10px 0 0;
+      color: #ccc;
+    }
+    .carrousel {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      height: 100%;
+      -ms-overflow-style: none; /* Ocultar barra en IE y Edge */
+      scrollbar-width: none; /* Ocultar barra en Firefox */
+    }
+    .carrousel::-webkit-scrollbar {
+      display: none; /* Ocultar barra en Chrome, Safari y Opera */
+    }
+    .carrousel-item {
+      scroll-snap-align: center;
+      flex: 0 0 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+      position: relative;
+    }
+    .carrousel-item img {
+      width: 80%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+    .carrousel-item.active img {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    }
+    .carrousel-item:not(.active) {
+      opacity: 0.6;
+      transform: scale(0.9);
+    }
+    .carrousel-nombres {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .carrousel-nombres span {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 5px 10px;
+      transition: color 0.3s ease, transform 0.3s ease;
+      color: #ccc;
+      border-bottom: 2px solid transparent;
+    }
+    .carrousel-nombres span.active {
+      color: #00a8ff;
+      border-bottom-color: #00a8ff;
+    }
+    .descripcion {
+      padding: 20px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.8);
+      border-top: 1px solid #333;
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .descripcion p {
+      font-size: 1rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+    .descripcion .restricciones {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #FFD700;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bombóns artesanais</h1>
+    <p>Tres Sabores, Unha experiencia</p>
+  </header>
+
+  <!-- Carrusel de Bombones -->
+  <div class="carrousel" id="carrousel">
+    <!-- Bombón de Caramelo Salado -->
+    <div class="carrousel-item active">
+      <img src="cafe.png" alt="Bombón de Caramelo Salado">
+    </div>
+    <!-- Bombón de Café e Chocolate Negro -->
+    <div class="carrousel-item">
+      <img src="cafe.png" alt="Bombón de Café e Chocolate Negro">
+    </div>
+    <!-- Bombón de Crema Biscoff -->
+    <div class="carrousel-item">
+      <img src="cafe.png" alt="Bombón de Crema Biscoff">
+    </div>
+  </div>
+
+  <!-- Carrusel de Nombres -->
+  <div class="carrousel-nombres" id="carrousel-nombres">
+    <span class="active">Caramelo Salado</span>
+    <span>Café e Chocolate Negro</span>
+    <span>Crema Biscoff</span>
+  </div>
+
+  <!-- Descripción y Restricciones -->
+  <div class="descripcion" id="descripcion">
+    <p id="descripcion-texto">
+      Unha combinación única de caramelo suave e sal mariña, elaborado con azúcar derretido ata acadar un ton dourado, mesturado con nata fresca e un toque de manteiga.
+    </p>
+    <div class="restricciones" id="restricciones">
+      Vegetariano • Sen gluten
+    </div>
+  </div>
+
+  <script>
+    const carrousel = document.getElementById('carrousel');
+    const nombres = document.getElementById('carrousel-nombres').children;
+    const descripcionTexto = document.getElementById('descripcion-texto');
+    const restricciones = document.getElementById('restricciones');
+
+    // Datos de los bombones
+    const bombones = [
+      {
+        nombre: "Caramelo Salado",
+        descripcion: "Unha combinación única de caramelo suave e sal mariña, elaborado con azúcar derretido ata acadar un ton dourado, mesturado con nata fresca e un toque de manteiga.",
+        restricciones: "Vegetariano • Sen gluten"
+      },
+      {
+        nombre: "Café e Chocolate Negro",
+        descripcion: "Unha crema intensa de café soluble e chocolate negro (mínimo 60% cacao), mesturada con nata e un toque de extracto de café para un sabor profundo e aromático.",
+        restricciones: "Vegetariano • Sen lactosa"
+      },
+      {
+        nombre: "Crema Biscoff",
+        descripcion: "Unha ganache suave e especiada feita con crema Biscoff, chocolate con leite e un toque de canela. A mestura equilíbrase cunha pincelada de sal mariña.",
+        restricciones: "Vegetariano • Sen gluten"
+      }
+    ];
+
+    function handleCarrousel(index = null) {
+        if (index !== null) {
+            // Si se proporciona un índice, desplazar al índice indicado
+            const itemWidth = carrousel.children[0].offsetWidth;
+            carrousel.scrollTo({
+            left: index * itemWidth,
+            behavior: 'smooth'
+            });
+
+            // Actualizar clases y contenido
+            updateActiveState(index);
+        } else {
+            // Si no se proporciona un índice, detectar el índice activo basado en el scroll
+            const scrollPosition = carrousel.scrollLeft;
+            const itemWidth = carrousel.children[0].offsetWidth;
+            const activeIndex = Math.round(scrollPosition / itemWidth);
+
+            // Actualizar clases y contenido
+            updateActiveState(activeIndex);
+        }
+    }
+
+    // Función para actualizar el estado activo
+    function updateActiveState(activeIndex) {
+        Array.from(carrousel.children).forEach((item, index) => {
+            if (index === activeIndex) {
+            item.classList.add('active');
+            } else {
+            item.classList.remove('active');
+            }
+        });
+
+        Array.from(nombres).forEach((nombre, index) => {
+            if (index === activeIndex) {
+            nombre.classList.add('active');
+            } else {
+            nombre.classList.remove('active');
+            }
+        });
+
+        // Actualizar descripción y restricciones
+        descripcionTexto.textContent = bombones[activeIndex].descripcion;
+        restricciones.textContent = bombones[activeIndex].restricciones;
+    }
+
+    // Evento de scroll
+    carrousel.addEventListener('scroll', () => handleCarrousel());
+
+    // Evento de clic en los nombres
+    Array.from(nombres).forEach((nombre, index) => {
+      nombre.addEventListener('click', () => {
+        handleCarrousel(index);
+      });
+    });
+  </script>
+</body>
+</html>
