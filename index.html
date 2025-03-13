@@ -19,19 +19,20 @@
     }
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 5vh 5vw;
+      height: 10vh;
       background-color: #1a1a1a;
     }
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
+      font-size: 5vh;
       margin: 0;
       color: #fff;
     }
     header p {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1.2rem;
-      margin: 10px 0 0;
+      font-size: 2.5vh;
+      margin: 1vh 0 0;
       color: #ccc;
     }
     .carrousel {
@@ -41,7 +42,7 @@
       overflow-x: scroll;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      height: 100%;
+      height: 65vh;
       -ms-overflow-style: none; /* Ocultar barra en IE y Edge */
       scrollbar-width: none; /* Ocultar barra en Firefox */
     }
@@ -51,19 +52,17 @@
     .carrousel-item {
       scroll-snap-align: center;
       flex: 0 0 100%;
-      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: opacity 0.5s ease;
+      transition: opacity 1.0s ease;
       position: relative;
     }
     .carrousel-item img {
-      width: 80%;
-      max-width: 400px;
-      height: auto;
-      border-radius: 10px;
-      transition: transform 0.5s ease, box-shadow 0.5s ease;
+      height: 40vh;
+      width: auto;
+      border-radius: 2vh;
+      transition: transform 1.0s ease, box-shadow 1.0s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     }
     .carrousel-item.active img {
@@ -75,52 +74,53 @@
       transform: scale(0.9);
     }
     .carrousel-nombres {
+      height: 5vh;
       display: flex;
       justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      gap: 2vw;
+      padding: 2vh 2vw;
       background-color: rgba(0, 0, 0, 0.8);
     }
     .carrousel-nombres span {
       font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+      font-size: 3vh;
       cursor: pointer;
-      padding: 5px 10px;
-      transition: color 0.3s ease, transform 0.3s ease;
+      padding: 1vh 2vw;
+      transition: color 1.0s ease, transform 1.0s ease;
       color: #ccc;
-      border-bottom: 2px solid transparent;
+      border-bottom: 0.2vh solid transparent;
     }
     .carrousel-nombres span.active {
       color: #00a8ff;
       border-bottom-color: #00a8ff;
     }
     .descripcion {
-      padding: 20px;
+      padding: 2vh 5vw;
       text-align: center;
       background-color: rgba(0, 0, 0, 0.8);
-      border-top: 1px solid #333;
-      min-height: 150px;
+      border-top: 0.1vh solid #333;
+      height: 20vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
     .descripcion p {
-      font-size: 1rem;
+      font-size: 2vh;
       margin: 0;
       opacity: 0.9;
     }
     .descripcion .restricciones {
       font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
+      font-size: 1.8vh;
       color: #FFD700;
-      margin-top: 10px;
+      margin-top: 1vh;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Bombóns artesanais</h1>
-    <p>Tres Sabores, Unha experiencia</p>
+    <p>Combinando o doce e o salgado</p>
   </header>
 
   <!-- Carrusel de Bombones -->
@@ -141,9 +141,9 @@
 
   <!-- Carrusel de Nombres -->
   <div class="carrousel-nombres" id="carrousel-nombres">
-    <span class="active">Caramelo Salado</span>
-    <span>Café e Chocolate Negro</span>
-    <span>Crema Biscoff</span>
+    <span class="active">Caramelo</span>
+    <span>Café</span>
+    <span>Biscoff</span>
   </div>
 
   <!-- Descripción y Restricciones -->
@@ -152,7 +152,7 @@
       Unha combinación única de caramelo suave e sal mariña, elaborado con azúcar derretido ata acadar un ton dourado, mesturado con nata fresca e un toque de manteiga.
     </p>
     <div class="restricciones" id="restricciones">
-      Vegetariano • Sen gluten
+      Vexetariano • Sen gluten
     </div>
   </div>
 
@@ -165,19 +165,19 @@
     // Datos de los bombones
     const bombones = [
       {
-        nombre: "Caramelo Salado",
+        nombre: "Caramelo",
         descripcion: "Unha combinación única de caramelo suave e sal mariña, elaborado con azúcar derretido ata acadar un ton dourado, mesturado con nata fresca e un toque de manteiga.",
-        restricciones: "Vegetariano • Sen gluten"
+        restricciones: "Vexetariano • Sen gluten"
       },
       {
-        nombre: "Café e Chocolate Negro",
+        nombre: "Café",
         descripcion: "Unha crema intensa de café soluble e chocolate negro (mínimo 60% cacao), mesturada con nata e un toque de extracto de café para un sabor profundo e aromático.",
-        restricciones: "Vegetariano • Sen lactosa"
+        restricciones: "Vexetariano • Sen gluten"
       },
       {
-        nombre: "Crema Biscoff",
+        nombre: "Biscoff",
         descripcion: "Unha ganache suave e especiada feita con crema Biscoff, chocolate con leite e un toque de canela. A mestura equilíbrase cunha pincelada de sal mariña.",
-        restricciones: "Vegetariano • Sen gluten"
+        restricciones: "Vexetariano • Sen gluten"
       }
     ];
 
