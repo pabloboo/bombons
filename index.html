@@ -64,6 +64,11 @@
       border-radius: 2vh;
       transition: transform 1.0s ease, box-shadow 1.0s ease;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      mask-image: 
+        linear-gradient(to top, transparent 0%, black 20%),
+        linear-gradient(to bottom, transparent 0%, black 20%),
+        linear-gradient(to left, transparent 0%, black 20%),
+        linear-gradient(to right, transparent 0%, black 20%);
     }
     .carrousel-item.active img {
       transform: scale(1.05);
@@ -128,15 +133,15 @@
   <div class="carrousel" id="carrousel">
     <!-- Bombón de Caramelo Salado -->
     <div class="carrousel-item active">
-      <img src="cafe.png" alt="Bombón de Caramelo Salado">
+      <img src="caramelo.png" alt="Bombón de Caramelo Salado">
     </div>
     <!-- Bombón de Café e Chocolate Negro -->
     <div class="carrousel-item">
       <img src="cafe.png" alt="Bombón de Café e Chocolate Negro">
     </div>
-    <!-- Bombón de Crema Biscoff -->
+    <!-- Bombón de Crema Lotus -->
     <div class="carrousel-item">
-      <img src="cafe.png" alt="Bombón de Crema Biscoff">
+      <img src="lotus.png" alt="Bombón de Crema Lotus">
     </div>
   </div>
 
@@ -144,7 +149,7 @@
   <div class="carrousel-nombres" id="carrousel-nombres">
     <span class="active">Caramelo</span>
     <span>Café</span>
-    <span>Biscoff</span>
+    <span>Lotus</span>
   </div>
 
   <!-- Descripción y Restricciones -->
@@ -176,8 +181,8 @@
         restricciones: "Vexetariano • Sen gluten"
       },
       {
-        nombre: "Biscoff",
-        descripcion: "Chocolate negro e crema de galleta Biscoff. A textura é suave e fundente, con un aroma a canela.",
+        nombre: "Lotus",
+        descripcion: "Chocolate negro 70% e crema de galleta lotus. A textura é suave e fundente, con un aroma a canela.",
         restricciones: "Vexetariano • Sen gluten"
       }
     ];
