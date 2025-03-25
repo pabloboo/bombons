@@ -73,6 +73,33 @@
       opacity: 0.6;
       transform: scale(0.9);
     }
+    .unavailable-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2vh;
+    }
+    .unavailable-text {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3vh;
+      color: white;
+      background-color: #ff3333;
+      padding: 1vh 2vw;
+      border-radius: 1vh;
+      margin-bottom: 2vh;
+    }
+    .available-soon {
+      font-size: 2vh;
+      color: #ccc;
+      font-style: italic;
+    }
     .carrousel-nombres {
       height: 5vh;
       display: flex;
@@ -89,10 +116,14 @@
       transition: color 1.0s ease, transform 1.0s ease;
       color: #ccc;
       border-bottom: 0.2vh solid transparent;
+      position: relative;
     }
     .carrousel-nombres span.active {
       color: #00a8ff;
       border-bottom-color: #00a8ff;
+    }
+    .carrousel-nombres span.unavailable {
+      color: #555;
     }
     .descripcion {
       padding: 2vh 5vw;
@@ -129,10 +160,18 @@
     <!-- Bombón de Caramelo Salado -->
     <div class="carrousel-item active">
       <img src="caramelo.png" alt="Bombón de Caramelo Salado">
+      <div class="unavailable-overlay">
+        <div class="unavailable-text">ESGOTADO</div>
+        <div class="available-soon">Dispoñible próximamente</div>
+      </div>
     </div>
     <!-- Bombón de Café e Chocolate Negro -->
     <div class="carrousel-item">
       <img src="cafe.png" alt="Bombón de Café e Chocolate Negro">
+      <div class="unavailable-overlay">
+        <div class="unavailable-text">ESGOTADO</div>
+        <div class="available-soon">Dispoñible próximamente</div>
+      </div>
     </div>
     <!-- Bombón de Crema Lotus -->
     <div class="carrousel-item">
@@ -142,8 +181,8 @@
 
   <!-- Carrusel de Nombres -->
   <div class="carrousel-nombres" id="carrousel-nombres">
-    <span class="active">Caramelo</span>
-    <span>Café</span>
+    <span class="active unavailable">Caramelo</span>
+    <span class="unavailable">Café</span>
     <span>Lotus</span>
   </div>
 
@@ -168,17 +207,20 @@
       {
         nombre: "Caramelo",
         descripcion: "Chocolate branco recheo de caramelo, con un toque de sal. Doce, intenso e reconfortante.",
-        restricciones: "Vexetariano • Sen gluten"
+        restricciones: "Vexetariano • Sen gluten",
+        disponible: false
       },
       {
         nombre: "Café",
         descripcion: "Capa de chocolate con leite que envolve unha mousse de café aireada. Equilibrio entre amargor e dozura. Enerxía en cada bocado.",
-        restricciones: "Vexetariano • Sen gluten"
+        restricciones: "Vexetariano • Sen gluten",
+        disponible: false
       },
       {
         nombre: "Lotus",
         descripcion: "Chocolate negro 70% e crema de galleta lotus. A textura é suave e fundente, con un aroma a canela.",
-        restricciones: "Vexetariano • Sen gluten"
+        restricciones: "Vexetariano • Sen gluten",
+        disponible: true
       }
     ];
 
